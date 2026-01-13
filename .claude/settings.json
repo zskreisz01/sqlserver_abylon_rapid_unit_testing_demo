@@ -1,0 +1,45 @@
+{
+    "mcpServers": {
+    "sql-server-dev": {
+      "command": "docker",
+      "args": [
+        "exec",
+        "-i",
+        "sqlserver2025",
+        "/opt/mssql-tools18/bin/sqlcmd",
+        "-S",
+        "localhost",
+        "-U",
+        "SA",
+        "-P",
+        "YourStrong@Passw0rd",
+        "-C"
+      ],
+      "description": "MCP server for SQL Server 2025 development container (port 1433)"
+    },
+    "sql-server-test": {
+      "command": "docker",
+      "args": [
+        "exec",
+        "-i",
+        "sqlserver2025-test",
+        "/opt/mssql-tools18/bin/sqlcmd",
+        "-S",
+        "localhost",
+        "-U",
+        "SA",
+        "-P",
+        "YourStrong@Passw0rd",
+        "-C"
+      ],
+      "description": "MCP server for SQL Server 2025 test container with tSQLt (port 1434)"
+    }
+  },
+  "allowedBashCommands": [
+    {
+      "command": "docker",
+      "args": ["exec", "*"],
+      "description": "Allow docker exec commands for SQL Server containers"
+    }
+  ]
+}
